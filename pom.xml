@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>co.edu.eam.agrodirecto</groupId>
+  <artifactId>agrodirecto</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.10.2</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Motor de suites: permite que una clase agrupe y ejecute las demas clases de prueba. -->
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite-engine</artifactId>
+      <version>1.10.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <!-- Se ejecuta la suite, que a su vez invoca todas las clases de prueba del modulo. -->
+          <includes>
+            <include>**/PruebasModuloPedidosTest.java</include>
+            <include>**/ServicioRegistroTest.java</include>
+            <!-- Guía 1: pruebas unitarias y de integración con valores límite -->
+            <include>**/ValidadorRegistroUnitariasTest.java</include>
+            <include>**/ServicioRegistroIntegracionTest.java</include>
+            <include>**/GestorPedidosLimitesTest.java</include>
+            <!-- Guía 2: un ejemplo de cada tipo de prueba (humo, funcional, regresión,
+                 exploratoria, rendimiento, seguridad y usabilidad) -->
+            <include>**/guia2/*Test.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

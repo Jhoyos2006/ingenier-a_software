@@ -1,0 +1,22 @@
+# Build de Maven — se regenera con "mvn clean test"
+target/
+
+# Clases compiladas sueltas
+*.class
+
+# Entornos de desarrollo
+.idea/
+*.iml
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Registros de ejecución
+*.log
